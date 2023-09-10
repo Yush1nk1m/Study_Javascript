@@ -1,0 +1,26 @@
+.container {
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    padding: 8px;
+    margin: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    color: #aaa;
+}
+
+.button {
+    background-color: #ddd;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    &:hover {       /* &는 부모 요소를 의미하므로 .button:hover와 같은 의미이다. */
+        background-color: #aaa;
+        color: #fff;
+        cursor: pointer;
+    }
+}
