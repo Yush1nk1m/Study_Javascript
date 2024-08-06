@@ -1,5 +1,6 @@
 import './App.css';
 import Register from './components/Register';
+import HookExam from './components/HookExam';
 // 컴포넌트: HTML 태그 집합을 반환하는 함수
 // 컴포넌트의 이름은 반드시 대문자로 시작해야 한다.
 
@@ -9,7 +10,7 @@ function App() {
   return (
     <>
       <div>
-        <Register />
+        <HookExam />
       </div>
     </>
   );
