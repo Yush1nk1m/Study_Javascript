@@ -1,9 +1,9 @@
-import { useState } from "react";
 import "./App.css";
+import { useState } from "react";
+import { useRef } from "react";
 import Editor from "./components/Editor";
 import Header from "./components/Header";
 import List from "./components/List";
-import { useRef } from "react";
 
 const mockData = [
   {
@@ -41,11 +41,21 @@ function App() {
     setTodos([newTodo, ...todos]);
   };
 
+  const onUpdate = (targetId) => {
+    // todos State의 값들 중 targetId와 일치하는 id를 갖는 todo item의 isDone 속성 변경
+
+    setTodos(
+      todos.map((todo) =>
+        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+
   return (
     <div className="App">
       <Header />
       <Editor onCreate={onCreate} />
-      <List todos={todos} />
+      <List todos={todos} onUpdate={onUpdate} />
     </div>
   );
 }
