@@ -20,7 +20,6 @@ const List = ({ todos, onUpdate, onDelete }) => {
   };
 
   const filteredTodos = getFilteredData();
-  z;
 
   return (
     <div className="List">
