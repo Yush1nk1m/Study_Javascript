@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Editor from "./components/Editor";
 import Header from "./components/Header";
 import List from "./components/List";
+import { useCallback } from "react";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -24,7 +25,7 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, []);
   const idRef = useRef(0);
 
-  const onCreate = (content) => {
+  const onCreate = useCallback((content) => {
     dispatch({
       type: "CREATE",
       data: {
@@ -34,21 +35,21 @@ function App() {
         date: new Date().getTime(),
       },
     });
-  };
+  }, []);
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: "UPDATE",
       targetId,
     });
-  };
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch({
-      type: "DELETE",
+      type: "UPDATE",
       targetId,
     });
-  };
+  }, []);
 
   return (
     <div className="App">
