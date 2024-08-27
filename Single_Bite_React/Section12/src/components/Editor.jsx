@@ -3,14 +3,8 @@ import EmotionItem from "./EmotionItem";
 import Button from "./Button";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-const emotionList = [
-  { emotionId: 1, emotionName: "완전 좋음" },
-  { emotionId: 2, emotionName: "좋음" },
-  { emotionId: 3, emotionName: "그럭저럭" },
-  { emotionId: 4, emotionName: "나쁨" },
-  { emotionId: 5, emotionName: "끔찍함" },
-];
+import { emotionList } from "../util/constants";
+import { getStringifiedDate } from "../util/get-stringified-date";
 
 const Editor = ({ initData, onSubmit }) => {
   const nav = useNavigate();
@@ -45,15 +39,6 @@ const Editor = ({ initData, onSubmit }) => {
 
   const onClickSubmitButton = () => {
     onSubmit(input);
-  };
-
-  const getStringifiedDate = (targetDate) => {
-    // YYYY-MM-DD
-    let year = targetDate.getFullYear();
-    let month = `0${targetDate.getMonth() + 1}`.slice(-2);
-    let date = `0${targetDate.getDate()}`.slice(-2);
-
-    return `${year}-${month}-${date}`;
   };
 
   return (
